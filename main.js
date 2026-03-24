@@ -60,6 +60,7 @@ const nextBtn = document.getElementById("next-btn");
 const finishBtn = document.getElementById("finish-btn");
 const startBtn = document.getElementById("start-btn");
 const restartBtn = document.getElementById("restart-btn");
+const exitBtn = document.getElementById("exit-btn");
 const scoreEl = document.getElementById("score");
 
 function showQuestion() {
@@ -149,9 +150,16 @@ function restartQuiz() {
   welcomeContainer.style.display = "block";
 }
 
+function exitApp() {
+  alert("Gracias por jugar. Cerrando la app...");
+  // Para navegadores y entorno de escritorio, usar recarga o desplegar bienvenida.
+  window.location.reload();
+}
+
 submitBtn.addEventListener("click", checkAnswer);
 nextBtn.addEventListener("click", nextQuestion);
 finishBtn.addEventListener("click", finishQuiz);
+exitBtn.addEventListener("click", exitApp);
 startBtn.addEventListener("click", startQuiz);
 restartBtn.addEventListener("click", restartQuiz);
 
