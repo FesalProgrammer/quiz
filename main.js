@@ -48,6 +48,7 @@ const quizQuestions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let answeredQuestions = 0;
 
 const welcomeContainer = document.getElementById("welcome-container");
 const quizContainer = document.getElementById("quiz-container");
@@ -56,6 +57,7 @@ const questionEl = document.getElementById("question");
 const answersEl = document.getElementById("answers");
 const submitBtn = document.getElementById("submit-btn");
 const nextBtn = document.getElementById("next-btn");
+const finishBtn = document.getElementById("finish-btn");
 const startBtn = document.getElementById("start-btn");
 const restartBtn = document.getElementById("restart-btn");
 const scoreEl = document.getElementById("score");
@@ -79,6 +81,7 @@ function showQuestion() {
   });
   submitBtn.style.display = "inline-block";
   nextBtn.style.display = "none";
+  finishBtn.style.display = "inline-block";
 }
 
 function checkAnswer() {
@@ -100,6 +103,7 @@ function checkAnswer() {
   } else {
     alert("Incorrect!");
   }
+  answeredQuestions++;
   submitBtn.style.display = "none";
   nextBtn.style.display = "inline-block";
 }
@@ -113,10 +117,22 @@ function nextQuestion() {
   }
 }
 
+function finishQuiz() {
+  if (submitBtn.style.display !== "none") {
+    const confirmFinish = confirm(
+      "Aún no has enviado esta pregunta. Finalizar con el puntaje actual?",
+    );
+    if (!confirmFinish) {
+      return;
+    }
+  }
+  showScore();
+}
+
 function showScore() {
   quizContainer.style.display = "none";
   scoreContainer.style.display = "block";
-  scoreEl.textContent = `Your score: ${score} out of ${quizQuestions.length}`;
+  scoreEl.textContent = `Your score: ${score} out of ${answeredQuestions} answered (total ${quizQuestions.length} questions)`;
 }
 
 function startQuiz() {
@@ -128,12 +144,14 @@ function startQuiz() {
 function restartQuiz() {
   currentQuestionIndex = 0;
   score = 0;
+  answeredQuestions = 0;
   scoreContainer.style.display = "none";
   welcomeContainer.style.display = "block";
 }
 
 submitBtn.addEventListener("click", checkAnswer);
 nextBtn.addEventListener("click", nextQuestion);
+finishBtn.addEventListener("click", finishQuiz);
 startBtn.addEventListener("click", startQuiz);
 restartBtn.addEventListener("click", restartQuiz);
 

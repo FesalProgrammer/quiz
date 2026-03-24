@@ -1,28 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="welcome-container">
-        <h1>Welcome to the Quiz!</h1>
-        <p>Test your knowledge with this fun quiz.</p>
-        <button id="start-btn">Start Quiz</button>
+      <h1>Welcome to the Quiz!</h1>
+      <p>Test your knowledge with this fun quiz.</p>
+      <button id="start-btn">Start Quiz</button>
     </div>
-    <div id="quiz-container" style="display: none;">
-        <div id="question"></div>
-        <div id="answers"></div>
-        <button id="submit-btn">Submit</button>
-        <button id="next-btn" style="display: none;">Next Question</button>
+    <div id="quiz-container" style="display: none">
+      <div id="question"></div>
+      <div id="answers"></div>
+      <button id="submit-btn">Submit</button>
+      <button id="next-btn" style="display: none">Next Question</button>
+      <button id="finish-btn">Finish Quiz</button>
     </div>
-    <div id="score-container" style="display: none;">
-        <h2>Quiz Completed!</h2>
-        <p id="score"></p>
-        <button id="restart-btn">Restart Quiz</button>
+    <div id="score-container" style="display: none">
+      <h2>Quiz Completed!</h2>
+      <p id="score"></p>
+      <button id="restart-btn">Restart Quiz</button>
     </div>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
